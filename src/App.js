@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import {Navbar, NavbarBrand} from 'reactstrap';
 import './App.css';
 import Menu from "./components/MenuComponent";
+import {Dishes} from "./shared/dishes"
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         </div>
      
       </Navbar>
-      <Menu />
+      <Menu dishes={Dishes}/>
     </div>
   );
 }
