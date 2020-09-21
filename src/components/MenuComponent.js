@@ -1,4 +1,6 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
+import Dishdetail from "./DishdetailComponent";
+
 import {
   Card,
   CardImg,
@@ -12,31 +14,13 @@ function Menu(props) {
   const [selectedDish, setSelectedDish] = useState(null);
 
   const onDishSelect = (dish) => {
-    debugger;
     console.log("came");
     setSelectedDish(dish);
-    console.log(selectedDish);
-  }
+  };
 
-  function renderDish(dish) {
-    if (dish != null)
-        return(
-            <Card>
-                <CardImg top src={dish.image} alt={dish.name} />
-                <CardBody>
-                  <CardTitle>{dish.name}</CardTitle>
-                  <CardText>{dish.description}</CardText>
-                </CardBody>
-            </Card>
-        );
-    else
-        return(
-            <div></div>
-        );
-}
   const menu = props.dishes.map((dish) => {
     return (
-      <div key={dish.id} className="col-12 col-md-5 m-1 ">
+      <div key={dish.id} className="col-12 col-md-5 m-1 text-left">
         <Card onClick={() => onDishSelect(dish)}>
           <CardImg width="100%" object src={dish.image} alt={dish.name} />
 
@@ -47,14 +31,11 @@ function Menu(props) {
       </div>
     );
   });
+
   return (
     <div className="container">
       <div className="row">{menu}</div>
-      <div className="row">
-                  <div  className="col-12 col-md-5 m-1">
-                    {renderDish(selectedDish)}
-                  </div>
-                </div>
+      <Dishdetail clickedDish={selectedDish} />
     </div>
   );
 }
