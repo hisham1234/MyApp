@@ -42,7 +42,7 @@ function Dishdetail(props) {
     });
   }
   return (
-    <div>
+    <div class="container">
       {dish ? (
         <div className="row text-left">
           <div className="col-12 col-md-5 m-1 ">{renderDish(dish)}</div>
