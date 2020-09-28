@@ -4,12 +4,16 @@ import { Navbar, NavbarBrand } from "reactstrap";
 import "./App.css";
 import Main from "./components/MainComponent";
 import { Dishes } from "./shared/dishes";
+import {BrowserRouter} from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+     <div className="App">
       <Main />
     </div>
+    </BrowserRouter>
+   
   );
 }
 

@@ -11,6 +11,7 @@ import {
 function Dishdetail(props) {
   let dish = props.clickedDish;
   function renderDish(dish) {
+    console.log("renderdish");
     return (
       <Card>
         <CardImg top src={dish.image} alt={dish.name} />
@@ -22,7 +23,7 @@ function Dishdetail(props) {
     );
   }
 
-  function renderComments(comments) {
+  function RenderComments({comments}) {
     return comments.map((cmt) => {
       const d = new Date(cmt.date);
       const ye = new Intl.DateTimeFormat("en", { year: "numeric" }).format(d);
@@ -48,7 +49,7 @@ function Dishdetail(props) {
           <div className="col-12 col-md-5 m-1 ">{renderDish(dish)}</div>
           <div className="col-12 col-md-5 m-1 ">
             <h4> Comments</h4>
-            {renderComments(dish.comments)}
+            <RenderComments comments={dish.comments}/>
           </div>
         </div>
       ) : (
